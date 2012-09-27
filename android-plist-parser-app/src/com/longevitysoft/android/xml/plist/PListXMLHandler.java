@@ -16,8 +16,6 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.ext.DefaultHandler2;
 
-import android.util.Log;
-
 import com.longevitysoft.android.util.Stringer;
 import com.longevitysoft.android.xml.plist.domain.PList;
 import com.longevitysoft.android.xml.plist.domain.PListObject;
@@ -58,11 +56,6 @@ public class PListXMLHandler extends DefaultHandler2 {
 	}
 
 	/**
-	 * {@link Stringer} for this class.
-	 */
-	private Stringer stringer;
-
-	/**
 	 * Listener for this parser.
 	 */
 	private PListParserListener parseListener;
@@ -80,64 +73,30 @@ public class PListXMLHandler extends DefaultHandler2 {
 	// Registers to hold state of parsing the workflow as Dict
 	protected java.lang.String key;
 
-	/**
-	 * 
-	 */
-	public PListXMLHandler() {
-		super();
-		stringer = new Stringer();
-	}
-
-	/**
-	 * @return the pList
-	 */
+	
 	public PList getPlist() {
 		return pList;
 	}
-
-	/**
-	 * @param pList
-	 *            the pList to set
-	 */
 	public void setPlist(PList plist) {
 		this.pList = plist;
 	}
 
-	/**
-	 * @return the parseListener
-	 */
 	public PListParserListener getParseListener() {
 		return parseListener;
 	}
 
-	/**
-	 * @param parseListener
-	 *            the parseListener to set
-	 */
 	public void setParseListener(PListParserListener parseListener) {
 		this.parseListener = parseListener;
 	}
 
-	/**
-	 * @return the tempVal
-	 */
 	public Stringer getTempVal() {
 		return tempVal;
 	}
 
-	/**
-	 * @param tempVal
-	 *            the tempVal to set
-	 */
 	public void setTempVal(Stringer tempVal) {
 		this.tempVal = tempVal;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.xml.sax.helpers.DefaultHandler#startDocument()
-	 */
 	@Override
 	public void startDocument() throws SAXException {
 		super.startDocument();
@@ -146,12 +105,6 @@ public class PListXMLHandler extends DefaultHandler2 {
 		key = null;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.xml.sax.helpers.DefaultHandler#startElement(java.lang.String,
-	 * java.lang.String, java.lang.String, org.xml.sax.Attributes)
-	 */
 	@Override
 	public void startElement(java.lang.String uri, java.lang.String localName,
 			java.lang.String qName, Attributes attributes) throws SAXException {
@@ -181,23 +134,12 @@ public class PListXMLHandler extends DefaultHandler2 {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.xml.sax.helpers.DefaultHandler#characters(char[], int, int)
-	 */
 	@Override
 	public void characters(char[] ch, int start, int length)
 			throws SAXException {
 		tempVal.getBuilder().append(new java.lang.String(ch, start, length));
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.xml.sax.helpers.DefaultHandler#endElement(java.lang.String,
-	 * java.lang.String, java.lang.String)
-	 */
 	@Override
 	public void endElement(java.lang.String uri, java.lang.String localName,
 			java.lang.String qName) throws SAXException {

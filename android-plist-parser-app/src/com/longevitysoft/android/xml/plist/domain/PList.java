@@ -14,9 +14,6 @@ package com.longevitysoft.android.xml.plist.domain;
 
 import java.util.Stack;
 
-import android.util.Log;
-
-import com.longevitysoft.android.util.Stringer;
 import com.longevitysoft.android.xml.plist.Constants;
 
 /**
@@ -26,8 +23,6 @@ import com.longevitysoft.android.xml.plist.Constants;
 public class PList {
 
 	public static final java.lang.String TAG = "PList";
-
-	private Stringer stringer;
 
 	/**
 	 * The PList root config element.
@@ -41,7 +36,6 @@ public class PList {
 	private Stack<PListObject> stack;
 
 	public PList() {
-		stringer = new Stringer();
 		stackCtxInDict = false;
 		stackCtxInArray = false;
 		stackCtxNestedDepth = 0;
