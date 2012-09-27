@@ -132,9 +132,6 @@ public abstract class BaseXMLParser {
 							.toString(), "IOException");
 			e.printStackTrace();
 		}
-
-		Log.v(stringer.newBuilder().append(TAG).append("#parse").toString(),
-				"done parsing xml");
 	}
 
 }
