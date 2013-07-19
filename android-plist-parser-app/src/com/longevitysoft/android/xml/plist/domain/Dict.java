@@ -27,6 +27,8 @@ public class Dict extends PListObject {
 	
 	private static final String EMPTY_STRING = new String();
 	private static final Integer EMPTY_INTEGER = new Integer();
+	private static final Real EMPTY_REAL = new Real();
+	
 
 	/**
 	 * 
@@ -131,6 +133,23 @@ public class Dict extends PListObject {
 		Integer value = (Integer) getPlistObject(key);
 		if (value == null) {
 			return EMPTY_INTEGER;
+		}
+
+		return value;
+	}
+	
+	/**
+	 * Get a Real configuration value for the given key.
+	 * 
+	 * @param key
+	 *            The text of the key to look up in the configuration
+	 *            dictionary.
+	 * @return The Real value of the specified key.
+	 */
+	public Real getReal(java.lang.String key) {
+		Real value = (Real) getPlistObject(key);
+		if (value == null) {
+			return EMPTY_REAL;
 		}
 
 		return value;
